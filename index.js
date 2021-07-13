@@ -12,13 +12,43 @@ const questions =[
         },
         {
             type:"input",
-            message:"Write a disciprtion for your intended project?",
-            name:"discription",
+            message:"Write a description for your intended project?",
+            name:"description",
         },
         {
             type:"input",
-            message:"What are the installation instructions?",
-            name:"instalation",
+            message:"What are the contents of the readme?",
+            name:"TableofContents",
+        },
+        {
+            type:"input",
+            message:"What are the contents of the readme?",
+            name:"TableofContents1",
+        },
+        {
+            type:"input",
+            message:"What are the contents of the readme?",
+            name:"TableofContents2",
+        },
+        {
+            type:"input",
+            message:"What are the contents of the readme?",
+            name:"TableofContents3",
+        },
+        {
+            type:"input",
+            message:"What are the contents of the readme?",
+            name:"TableofContents4",
+        },
+        {
+            type:"input",
+            message:"What are the contents of the readme?",
+            name:"TableofContents5",
+        },
+        {
+            type:"input",
+            message:"Provide instructions for installation?",
+            name:"Installation",
         },
         {
             type:"input",
@@ -27,19 +57,30 @@ const questions =[
         },
         {
             type:"input",
-            message:"What are some of the features?",
-            name:"features",
+            message:"List all licencess?",
+            name:"License",
         },
         {
             type:"input",
             message:"If you have created application or package and would like other developer to contribute please create instructions here?", 
-            name:"contribute",
+            name:"Contributing",
         },
         {
             type:"input",
-            message:"Input any test you have fore ryour application and provide examples on how to run it here?",
-            name:"test",
+            message:"Input any test you have fore your application and provide examples on how to run it here?",
+            name:"Tests",
         },
+        {
+            type:"input",
+            message:"What is your email?",
+            name:"Question1",
+        },
+        {
+            type:"input",
+            message:"What is your github Username?",
+            name:"Question2",
+        },
+        
     ]
 
 
@@ -47,8 +88,8 @@ const questions =[
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     const readMeContent=generateMarkdown(data);
-    fs.writeToFile(fileName, readMeContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created index.html!')
+    fs.writeFileSync(fileName, readMeContent, (err) =>
+      err ? console.log(err) : console.log('Successfully created README.md!')
     );
 }
 
@@ -58,9 +99,9 @@ function init() {
         //THEN () we will use the users answers to genrateMarkdown(answers) and store the result in markdownText
         //Use the generated markdowntext to writeToFile("output.md",markdownText)
         inquirer.prompt(questions).then(answers=>{
-            writeToFile('test.README.md', answers)
+            writeToFile('README.md', answers)
         })
-    //;
+  
 }
 
 // Function call to initialize app
